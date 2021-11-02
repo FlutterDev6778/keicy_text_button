@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class KeicyTextButton extends StatelessWidget {
   final String? text;
+  final Widget? child;
   final Widget? leftWidget;
   final Widget? rightWidget;
   final TextStyle? textStyle;
@@ -22,6 +23,7 @@ class KeicyTextButton extends StatelessWidget {
   const KeicyTextButton({
     Key? key,
     @required this.text,
+    this.child,
     this.backColor,
     this.primaryColor,
     this.leftWidget,
@@ -63,7 +65,7 @@ class KeicyTextButton extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           leftWidget ?? const SizedBox(),
-          Text(text!, style: textStyle),
+          child ?? Text(text!, style: textStyle),
           rightWidget ?? const SizedBox(),
         ],
       ),
