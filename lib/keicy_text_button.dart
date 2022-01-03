@@ -17,8 +17,8 @@ class KeicyTextButton extends StatelessWidget {
   final double? elevation;
   final FocusNode? focusNode;
   final bool autofocus;
-  final Function? onPressed;
-  final Function? onLongPress;
+  final void Function()? onPressed;
+  final void Function()? onLongPress;
 
   const KeicyTextButton({
     Key? key,
@@ -71,16 +71,16 @@ class KeicyTextButton extends StatelessWidget {
       ),
       focusNode: focusNode,
       autofocus: autofocus,
-      onPressed: () {
-        if (onPressed != null) {
-          onPressed!();
-        }
-      },
-      onLongPress: () {
-        if (onLongPress != null) {
-          onLongPress!();
-        }
-      },
+      onPressed: onPressed == null
+          ? null
+          : () {
+              onPressed!();
+            },
+      onLongPress: onLongPress == null
+          ? null
+          : () {
+              onLongPress!();
+            },
     );
   }
 }
